@@ -4,8 +4,9 @@
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [compojure "1.6.1"]
-                 [ring/ring-defaults "0.3.2"]
-                 [cheshire "5.8.2"]]
+                 [ring/ring-defaults "0.1.5"]
+                 [ring/ring-json "0.4.0"]
+                 [cheshire "5.5.0"]]
   :plugins [[lein-ring "0.12.4"]
             [com.jakemccrary/lein-test-refresh "0.12.0"]]
   :ring {:handler example-project.handler/app}

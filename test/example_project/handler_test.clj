@@ -88,3 +88,15 @@
                               (mock/content-type "application/json")))]
         (testing "returns a 400"
           (is (= 400 (:status response))))))))
+
+
+(deftest json-response-test
+  (testing "the /info endpoint"
+    (let [response (app (mock/request :get "/info"))]
+      (testing "returns a 200"
+        (is (= 200 (:status response))))
+      (testing "with a valid JSON body"
+        (let [info (json/decode (:body response))]
+          (testing "containing the expected keys"
+            (is (=  #{"Java Version" "OS Name" "OS Version"}
+                    (set (keys info))))))))))
